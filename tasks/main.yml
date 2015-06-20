@@ -1,0 +1,24 @@
+---
+- include: create_swap_file.yml
+  when: base_create_swap_file | bool
+  tags: swap
+
+- name: update apt cache
+  apt:
+    update_cache: yes
+    cache_valid_time: "{{ 60*60*4 }}"
+  when: base_update_cache | bool
+  tags: package_cache
+
+- name: install base system packages
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items: base_sys_packages
+  tags: packages
+
+- name: install base pip packages
+  pip:
+    name: "{{ item }}"
+  with_items: base_pip_packages
+  tags: packages

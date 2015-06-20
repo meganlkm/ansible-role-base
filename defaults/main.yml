@@ -1,0 +1,27 @@
+---
+base_swap_file_path: /swapfile
+base_swap_file_size_kb: 512
+
+base_update_cache: True
+base_create_swap_file: False
+
+base_sys_packages:
+  - bash
+  - build-essential
+  - curl
+  - git
+  - htop
+  - libpq-dev
+  - libssl-dev
+  - libssl-doc
+  - ntp
+  - openssl
+  - python-dev
+  - python-pip
+  - python-pycurl
+  - supervisor
+  - unzip
+  - wget
+
+base_pip_packages:
+  - virtualenv
